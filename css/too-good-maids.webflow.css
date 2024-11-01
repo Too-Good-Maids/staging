@@ -14588,6 +14588,7 @@ blockquote {
 }
 
 @media screen and (max-width: 479px) {
+ 
   .section.landing-banner {
     background-position: 109% 25%, -5% 18%, 50% 4%, 100% 51%, 4% 52%;
     background-size: auto 45px, auto 40px, auto 35px, auto 120px, auto 150px;
