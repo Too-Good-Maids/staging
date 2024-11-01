@@ -134,6 +134,15 @@ a:hover {
   color: var(--main-red);
 }
 
+.testimonial {
+  list-style-type: disc; 
+  padding-left: 5vw;
+  margin-top: 5vh;
+}
+.testimonial-item {
+  margin-bottom: 2.5vh;
+}
+
 ul {
   margin-top: 10px;
   padding-left: 0;
