@@ -1695,6 +1695,7 @@ textarea.w-select {
 }
 .w--nav-dropdown-list-open {
   position: static;
+
 }
 @media screen and (max-width: 991px) {
   .w-nav[data-collapse='medium'] .w-nav-menu {
@@ -1714,6 +1715,7 @@ textarea.w-select {
   .w-nav-brand {
     padding-left: 10px;
   }
+
 }
 @media screen and (max-width: 479px) {
   .w-nav[data-collapse='tiny'] .w-nav-menu {
@@ -1778,6 +1780,7 @@ textarea.w-select {
 .w-ix-emptyfix:after {
   content: "";
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
