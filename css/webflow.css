@@ -797,6 +797,7 @@ textarea.w-select {
 }
 .w-widget-twitter-count-shim * {
   pointer-events: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 .w-widget-twitter-count-shim .w-widget-twitter-count-inner {
@@ -1029,6 +1030,7 @@ textarea.w-select {
   font-size: 40px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
   user-select: none;
 }
 .w-slider-arrow-left [class^='w-icon-'],
@@ -1094,6 +1096,7 @@ textarea.w-select {
   white-space: nowrap;
 }
 .w-dropdown-toggle {
+  -webkit-user-select: none;
   user-select: none;
   display: inline-block;
   cursor: pointer;
@@ -1672,6 +1675,7 @@ textarea.w-select {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
   user-select: none;
 }
 .w-nav-button:focus {
