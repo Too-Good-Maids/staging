@@ -18,6 +18,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: 'Laila-Bold';
+  src: url(fonts/Laila-Bold-subset.ttf);
+}
 .w-icon-slider-right:before {
   content: "\e600";
 }
