@@ -48,3 +48,143 @@
 .contacts-button:hover {
   background-color: rgb(178, 92, 92);
 }
+
+/* General Styles */
+body {
+  max-width: 100%;
+}
+
+/* Landing Banner */
+#landing-banner {
+  padding-bottom: 0;
+}
+
+#landing-banner .base-container {
+  padding-bottom: 0;
+}
+
+#landing-banner .heading-6 {
+  opacity: 0;
+  margin: 0;
+  font-size: 2.75rem;
+}
+
+#landing-banner .banner-description-lp {
+  opacity: 0;
+  margin: 0;
+  margin-bottom: 5vh;
+  font-size: 1.75rem;
+}
+
+#landing-banner .link-block-4 {
+  margin: 0;
+  object-fit: contain;
+}
+
+/* Clean So Good Section */
+.clean-so-good-section {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.clean-so-good-section .heading-10 {
+  opacity: 1;
+  display: block;
+  text-align: center;
+  font-size: 2.25rem;
+  margin-top: 0;
+}
+
+/* Text Descriptions */
+.clean-so-good-section .section-title-description-lp {
+  width: 100%;
+  margin: 0;
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  position: relative;
+  width: 70%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slideshow-container .prev,
+.slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  font-size: 48px;
+  transition: 0.6s ease;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.slideshow-container .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slideshow-container .prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.slideshow-container .prev:hover,
+.slideshow-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slideshow-container .active {
+  display: block;
+}
+
+/* CTA Buttons */
+.cta-button {
+  background-color: teal;
+  color: white;
+  font-size: 1.25rem;
+  height: 3rem;
+  border-radius: 5px;
+}
+
+/* Why Choose Too Good Maids Section */
+#why-choose-too-good-maids h2 {
+  font-size: 2.25rem;
+  margin-top: 7.5vh;
+  margin-bottom: 5vh;
+}
+
+#why-choose-too-good-maids ul {
+  display: block;
+  text-align: left;
+}
+
+#why-choose-too-good-maids .section-title-description-lp {
+  margin-top: 5vh;
+  width: 90%;
+}
+
+/* Free Estimate Section */
+#book-your-free-estimate h3 {
+  margin-top: 5vh;
+  text-align: center;
+}
+
+#book-your-free-estimate p {
+  margin: 5vh 0;
+  text-align: center;
+}
+
+#book-your-free-estimate button {
+  background-color: palevioletred;
+  padding: 1.25em;
+  border-radius: 10px;
+  color: white;
+}
