@@ -56,7 +56,7 @@ body {
 
 /* Landing Banner */
 #landing-banner {
-  padding-bottom: 0;
+  padding-bottom: 5vh;
 }
 
 #landing-banner .base-container {
@@ -97,10 +97,10 @@ body {
   width: 70vw;
   margin: 0 auto;
   padding: 0 15vw;
-  padding-bottom: 5vh;
+  padding-bottom: 5vh !important;
 }
 
-.too-good-clean.section-title-description-lp {
+.too-good-clean .section-title-description-lp {
   width: 70vw;
   margin: 0 auto;
   padding: 0 15vw;
@@ -130,9 +130,7 @@ body {
 }
 
 .our-cleaning-services {
-  width: 70vw;
-  margin: 0 auto;
-  padding: 0 15vw;
+  width: 70vw; 
 }
 .our-cleaning-services h2.heading-10 {
   opacity: 1;
@@ -141,6 +139,7 @@ body {
   font-size: 2.5rem;
   margin-top: 5vw;
   margin-bottom: 0;
+  padding-left: 32vw;
 }
 
 /* Slideshow Container */
