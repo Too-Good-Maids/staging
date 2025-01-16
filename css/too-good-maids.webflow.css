@@ -85,7 +85,12 @@ body {
 .clean-so-good-section .too-good-clean {
   width: 70vw;
   margin: 0 auto;
-  padding: 0 20vw;
+  padding: 0 15vw;
+}
+.clean-so-good-section.section .too-good-clean.section {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 0 15vw;
 }
 
 .clean-so-good-section.heading-10 {
