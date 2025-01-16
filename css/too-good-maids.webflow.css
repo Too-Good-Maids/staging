@@ -230,7 +230,7 @@ body {
 }
 
 .nav-dropdown-list-2 {
-  width: 225px;
+  width: 250px;
 }
 
 /* General link styles */
@@ -344,3 +344,49 @@ a:hover {
 .nav-dropdown-link-wrapper-2 .nav-link:visited {
   color: yellow;
 }
+
+/* Style for the dropdown link list */
+.dropdown-links {
+  display: block; /* Ensure all links are visible */
+  max-height: none; /* Allow unlimited height */
+  overflow: visible; /* Avoid clipping */
+  height: 350px;
+  padding: 2px 0; /* Add spacing for better readability */
+}
+
+/* Adjust link appearance */
+.dropdown-links li {
+  margin: 8px 0; /* Add vertical spacing between links */
+}
+
+
+.dropdown-links li a {
+  padding: 10px 15px; /* Increase clickable area */
+  text-decoration: none;
+  color: #333; /* Match design */
+  display: block;
+}
+
+/* Hover effect for links */
+.dropdown-links li a:hover {
+  background-color: #f9f9f9; /* Highlight link */
+  color: #f04e4e; /* Match hover design */
+  border-radius: 5px; /* Optional for rounded corners */
+}
+
+
+
+.nav-dropdown-list-2 .dropdown-links {
+  display: none;
+  position: absolute;
+  background-color: white; /* Match your design */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.nav-dropdown-list-2:hover .dropdown-links {
+  display: block;
+}
+
