@@ -337,6 +337,8 @@ p.data {
 
 .nav-dropdown-list-2 {
   width: 250px !important;
+  overflow: visible;
+  position: relative;
 }
  .nav-dropdown-link-wrapper-2 .nav-link {
   color: #000 !important;
@@ -410,4 +412,37 @@ p.data {
 
 .dropdown-link:hover {
   background-color: var(--light-gray);
+}
+
+@media (max-width: 767px) {
+  .dropdown-links {
+    display: none !important; /* Start hidden */
+    position: relative;
+    top: 100%; /* Align below the button */
+    left: 0; /* Align to the left of the parent */
+    width: 100%; /* Full width for mobile */
+    background-color: #fff; /* Background for contrast */
+    border: 1px solid #ccc; /* Optional border for visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for visibility */
+    z-index: 1000; /* Ensure visibility over other elements */
+    padding: 10px 0; /* Space for links */
+}
+
+.dropdown-links.show {
+    display: block !important;
+    visibility: visible !important; /* Make visible when toggled */
+}
+
+.dropdown-link {
+    display: block; /* Ensure links stack vertically */
+    padding: 10px 20px; /* Add padding for clickable area */
+    text-align: left; /* Align text */
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.dropdown-link:hover {
+    background-color: #f5f5f5; /* Highlight on hover */
+    color: #000; /* Change text color on hover */
+}
 }

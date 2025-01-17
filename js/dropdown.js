@@ -1,22 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const dropdownButton = document.querySelector(".dropdown-button");
-  const dropdownLinks = document.querySelector(".dropdown-links");
+    const dropdownButton = document.querySelector(".dropdown-button");
+    const dropdownLinks = document.querySelector(".dropdown-links");
 
-  if (dropdownButton && dropdownLinks) {
-      console.log("Dropdown elements found:", dropdownButton, dropdownLinks);
+    if (dropdownButton && dropdownLinks) {
+        dropdownButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdownLinks.classList.toggle("show");
+        });
 
-      dropdownButton.addEventListener("click", (e) => {
-          console.log("Dropdown button clicked");
-          e.stopPropagation();
-          dropdownLinks.classList.toggle("show");
-          console.log("Dropdown links visibility toggled");
-      });
-
-      document.addEventListener("click", () => {
-          console.log("Clicked outside dropdown, hiding dropdown");
-          dropdownLinks.classList.remove("show");
-      });
-  } else {
-      console.error("Dropdown elements not found");
-  }
+        document.addEventListener("click", () => {
+            dropdownLinks.classList.remove("show");
+        });
+    }
 });
