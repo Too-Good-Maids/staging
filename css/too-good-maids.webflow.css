@@ -229,9 +229,6 @@ body {
   color: white;
 }
 
-.nav-dropdown-list-2 {
-  width: 250px;
-}
 
 /* General link styles */
 a {
@@ -329,6 +326,10 @@ a:hover {
   justify-content: center;
   gap: 160px;
 }
+
+.nav-dropdown-link-wrapper-2 {
+  overflow: visible !important;
+}
  .nav-dropdown-link-wrapper-2 .nav-link {
   color: #000 !important;
 }
@@ -384,10 +385,12 @@ a:hover {
   border: 1px solid var(--gray);
   z-index: 1000;
   padding: 10px;
+  width: 250px;
 }
 
 .dropdown-links.show {
-  display: block;
+  display: block !important;
+  visibility: visible;
 }
 
 .dropdown-link {

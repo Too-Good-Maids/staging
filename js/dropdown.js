@@ -3,14 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const dropdownLinks = document.querySelector(".dropdown-links");
 
   if (dropdownButton && dropdownLinks) {
+      console.log("Dropdown elements found:", dropdownButton, dropdownLinks);
+
       dropdownButton.addEventListener("click", (e) => {
-          e.stopPropagation(); // Prevent click event from bubbling
+          console.log("Dropdown button clicked");
+          e.stopPropagation();
           dropdownLinks.classList.toggle("show");
+          console.log("Dropdown links visibility toggled");
       });
 
-      // Close dropdown if clicking outside
       document.addEventListener("click", () => {
+          console.log("Clicked outside dropdown, hiding dropdown");
           dropdownLinks.classList.remove("show");
       });
+  } else {
+      console.error("Dropdown elements not found");
   }
 });
