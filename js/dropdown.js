@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdownLinks.style.display === "block" ? "none" : "block";
     });
   
-    document.addEventListener("click", () => {
+    dropdownButton.addEventListener("click", () => {
       dropdownLinks.classList.toggle("show");
     });
   
-    document.addEventListener("click", () => {
+    dropdownButton.addEventListener("click", () => {
       dropdownLinks.classList.remove("show");
     });
   });
