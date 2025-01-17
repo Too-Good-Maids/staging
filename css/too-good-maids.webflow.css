@@ -382,8 +382,12 @@ a:hover {
   left: 100%; /* Align it to the side */
   background-color: var(--white);
   border: 1px solid var(--gray);
-  z-index: 100;
+  z-index: 1000;
   padding: 10px;
+}
+
+.dropdown-links.show {
+  display: block;
 }
 
 .dropdown-links a {
