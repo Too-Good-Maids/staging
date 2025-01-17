@@ -330,6 +330,14 @@ a:hover {
 .nav-dropdown-link-wrapper-2 {
   overflow: visible !important;
 }
+
+p.data {
+  color: #000;
+}
+
+.nav-dropdown-list-2 {
+  width: 250px !important;
+}
  .nav-dropdown-link-wrapper-2 .nav-link {
   color: #000 !important;
 }
