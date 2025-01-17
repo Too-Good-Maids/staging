@@ -390,13 +390,13 @@ a:hover {
   display: block;
 }
 
-.dropdown-links a {
+.dropdown-link {
   display: block;
   padding: 5px 10px;
   color: var(--text-dark);
   text-decoration: none;
 }
 
-.dropdown-links a:hover {
+.dropdown-link:hover {
   background-color: var(--light-gray);
 }
