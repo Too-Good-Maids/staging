@@ -506,4 +506,12 @@ p.data {
   margin-bottom: 0;
   padding-left: 5vw !important;
 }
+
+p.contact-links {
+  width: 87.5vw;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 0.85em;
+}
 }
