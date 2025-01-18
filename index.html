@@ -360,23 +360,6 @@
   <a href="#" class="next" onclick="changeSlide(1)">&#10095;</a>
 
 </div>
-
-<script>
-  let slideIndex = 0;
-
-  function changeSlide(n) {
-      let slides = document.getElementsByClassName("landing-home-pages-wrapper");
-      slides[slideIndex].classList.remove('active');
-      slideIndex = (slideIndex + n + slides.length) % slides.length;
-      slides[slideIndex].classList.add('active');
-  }
-
-  // Optional: Auto-slide every 5 seconds
-  setInterval(() => {
-      changeSlide(1);
-  }, 10000);
-</script>
-      </div>
   <script src="js/script.js"></script>
   
   <div class="section">
