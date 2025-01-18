@@ -223,13 +223,24 @@ body {
 }
 
 #book-your-free-estimate button {
-  background-color: palevioletred;
+  background-color: #ff5b4a !important;
   padding: 1.25em;
   border-radius: 10px;
   color: white;
 }
 
-
+.section-title-wrapper.button {
+  background-color: #ff5b4a !important;
+  padding: 1.25em !important;
+  border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+  color: #fff !important;
+  width: 60vw;
+  margin-top: 2.5vh;
+}
 /* General link styles */
 a {
   color: #f04e4e; /* Use your page's red color */
