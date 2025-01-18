@@ -549,5 +549,8 @@ p.banner-description-lp {
   color: #000;
 }
 
-
+img.image-brand {
+  height: 125px;
+  width: 150px;
+}
 
