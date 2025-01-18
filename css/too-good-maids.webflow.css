@@ -208,7 +208,13 @@ body {
 
 #why-choose-too-good-maids .section-title-description-lp {
   margin-top: 5vh;
+  margin-left: 10vw;
   width: 90%;
+}
+
+.why-choose-too-good-maids {
+  color: #000;
+  font-family: Roboto Condensed;
 }
 
 /* Free Estimate Section */
@@ -220,6 +226,7 @@ body {
 #book-your-free-estimate p {
   margin: 5vh 0;
   text-align: center;
+  font-family: Roboto Condensed;
 }
 
 #book-your-free-estimate button {
