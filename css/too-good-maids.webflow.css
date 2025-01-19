@@ -597,7 +597,7 @@ p.banner-description-lp {
 
 #landing-banner {
   position: relative;
-  background: url('/images/Too-Good-Maids-Img-1-1.webp') no-repeat center center;
+  background: url('https://too-good-maids.github.io/staging/images/Too-Good-Maids-Img-1-1.webp') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: auto;
