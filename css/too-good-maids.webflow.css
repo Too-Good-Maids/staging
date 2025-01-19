@@ -545,8 +545,8 @@ p.banner-description-lp {
 }
 }
 
-.paragraph-2, .paragraph-3, .contact-links, .paragraph-no-margin, .residential-cleaning-services p, .services-text-home-1, .project-description-2, .rich-text-block-2 p {
-  color: #000;
+.paragraph-2, .paragraph-3, .contact-links, .paragraph-no-margin, .residential-cleaning-services p, .services-text-home-1, .project-description-2, .rich-text-block-2 p, p {
+  color: #000 !important;
 }
 
 
