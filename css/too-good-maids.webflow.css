@@ -130,16 +130,34 @@ body {
 }
 
 .our-cleaning-services {
-  width: 70vw; 
+  width: 70vw;
+  display: flex; 
+  text-align: center;
+  justify-content: center;
 }
 .our-cleaning-services h2.heading-10 {
   opacity: 1;
   display: block;
   text-align: center;
+  justify-content: center;
   font-size: 2.5rem;
   margin-top: 5vw;
   margin-bottom: 0;
-  padding-left: 32vw;
+  padding-left: 29vw
+  
+  
+}
+
+.our-cleaning-services h3.heading-7 {
+  opacity: 1;
+  display: block;
+  text-align: center;
+  font-size: 2.25rem;
+  margin-top: 5vw;
+  margin-bottom: 0;
+  padding-left: 25vw;
+  font-style: italic;
+  text-shadow:2px 2px rgb(208, 112, 112);
 }
 
 /* Slideshow Container */
@@ -525,6 +543,16 @@ p.data {
   padding-left: 5vw !important;
 }
 
+.our-cleaning-services h3.heading-7 {
+  opacity: 1;
+  display: block;
+  text-align: center;
+  font-size: 1.75rem;
+  margin-top: 5vw;
+  margin-bottom: 0;
+  padding-left: 5vw !important;
+}
+
 p.contact-links {
   width: 87.5vw;
   margin: 0;
@@ -547,6 +575,24 @@ p.banner-description-lp {
 
 .paragraph-2, .paragraph-3, .contact-links, .paragraph-no-margin, .residential-cleaning-services p, .services-text-home-1, .project-description-2, .rich-text-block-2 p, p {
   color: #000 !important;
+}
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  background: url('/images/close-up-young-maid-holding-folded-towels-1.webp') no-repeat center center;
+  background-size: cover;
+}
+
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* Black overlay with 50% opacity */
 }
 
 
