@@ -627,3 +627,8 @@ p.banner-description-lp {
   z-index: 2;
 }
 
+.link-7:hover, .link-8:hover, .link-10:hover {
+  font-size: 1.25rem;
+  color: #f04e4e;
+}
+
