@@ -7,3 +7,15 @@
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
 }
+
+/* Constrain the Clean So Good section so it matches the reading-width
+   of the surrounding content (was sprawling full-viewport at ~1081px+).
+   Unifies the page rhythm: wide hero → narrow story → narrow supporting
+   content → wide closing CTA banner. */
+.clean-so-good-section {
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
