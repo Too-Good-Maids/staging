@@ -262,9 +262,68 @@
             <h3 class="contacts-title" style="display: inline-block; margin-top: 7.5vh;">Let’s chat!</h3>
           </div>
             
-          <div class="contacts-location-slider" style="padding: 0;">
-            <iframe src="https://forms.zohopublic.com/bluedobiedev/form/TooGoodMaidsContactForm/formperma/ICiaM94xaf4I66BuiEyYT_UvfDLQ-L_WkghMROzKVX4" style="width: 100%; height: 1748px; padding: 0; overflow-y: hidden;"></iframe>
-            </div>
+          <div id="request-estimate" class="contacts-form-wrapper" style="padding: 0;">
+            <form id="request-estimate-form" action="https://api.web3forms.com/submit" method="POST" class="w-form">
+              <input type="hidden" name="access_key" value="e3229d26-a545-4baf-9f2f-6d20afe34c90">
+              <input type="hidden" name="persona" value="general">
+              <input type="hidden" name="subject" value="New Estimate Request - Too Good Maids">
+              <input type="hidden" name="from_name" value="Too Good Maids Website">
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+              <input type="text" name="name" placeholder="Your name" required maxlength="100" class="contacts-input w-input">
+              <input type="email" name="email" placeholder="Your email" required maxlength="120" class="contacts-input w-input">
+              <input type="tel" name="phone" placeholder="Your phone (optional)" maxlength="30" class="contacts-input w-input">
+              <select name="service_type" required class="contacts-input w-input">
+                <option value="">What kind of cleaning?</option>
+                <option value="home">Home cleaning</option>
+                <option value="commercial">Commercial / office</option>
+                <option value="short-term-rental">Short-term rental turnover</option>
+                <option value="other">Other / not sure yet</option>
+              </select>
+              <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input">
+              <textarea name="message" placeholder="Tell us about the space - rooms, square footage, anything else we should know" maxlength="3000" rows="4" class="contacts-textarea w-input"></textarea>
+
+              <button type="submit" class="primary-red-button full-width w-button">Request an Estimate</button>
+
+              <div id="request-estimate-result" role="status" aria-live="polite" style="margin-top: 1em;"></div>
+            </form>
+
+            <script>
+              (function () {
+                var form = document.getElementById('request-estimate-form');
+                var result = document.getElementById('request-estimate-result');
+                var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzWlihJOHKLut8B93QkiWwn9yW3MN0B8tteDBc_7CJwraarrLJFAQ-QZ5ekUbuN9sI/exec';
+                if (!form) return;
+                form.addEventListener('submit', function (e) {
+                  e.preventDefault();
+                  result.textContent = 'Sending…';
+                  var data = new FormData(form);
+
+                  var emailReq = fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: data
+                  }).then(function (r) { return r.json(); })
+                    .catch(function () { return { success: false }; });
+
+                  var sheetReq = SHEET_URL && SHEET_URL.indexOf('YOUR_') !== 0
+                    ? fetch(SHEET_URL, { method: 'POST', body: data })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { ok: false }; })
+                    : Promise.resolve({ ok: false, skipped: true });
+
+                  Promise.all([emailReq, sheetReq]).then(function (results) {
+                    var emailOk = results[0] && results[0].success;
+                    if (emailOk) {
+                      result.innerHTML = '<strong>Thanks! We’ll be in touch within 24 hours.</strong>';
+                      form.reset();
+                    } else {
+                      result.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:toogoodmaidscs@gmail.com">toogoodmaidscs@gmail.com</a>.';
+                    }
+                  });
+                });
+              })();
+            </script>
+          </div>
 
   
               </div>
