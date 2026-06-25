@@ -1,0 +1,9 @@
+/* Custom typography overrides — keep Laila (display) for content headings only.
+   The nav and CTA button use DM Sans so they read as quiet wayfinding instead
+   of competing with page H1s. */
+.nav-link,
+.dropdown-link,
+.request-an-estimate {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+}
