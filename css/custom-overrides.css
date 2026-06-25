@@ -30,3 +30,13 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+/* Defensive: Webflow's IX2 animation engine hides [data-w-id] elements
+   (opacity:0) and fades them in via JS. When the JS hiccups (slow first
+   paint, blocked scripts, CDN issue with jQuery), those elements stay
+   invisible — making the page look broken. Force opacity:1 so content
+   is always visible regardless of whether IX2 runs. Trade-off: loses
+   the scroll-triggered fade-in animations site-wide. */
+[data-w-id] {
+  opacity: 1 !important;
+}
