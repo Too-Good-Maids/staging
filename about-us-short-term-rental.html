@@ -353,12 +353,70 @@
     <img src="images/Michelle-Grant-2024-05-07T15_48_59.webp" loading="lazy" alt="AHCA Certificate" class="image-24">
     <img src="images/Michelle-Grant-2024-05-07T23_21_31.webp" loading="lazy" alt="AHCA Certificate" class="image-25"><img src="images/Michelle-Grant-2024-05-08T13_10_27.webp" loading="lazy" alt="AHCA Certificate" class="image-26"></div>
     <div class="w-layout-hflex flex-block-3" style="margin-top: 0;"><a style="display: inline-block; padding: 0 1.5%;" href="images/American-House-Cleaners-Association-Certificate.webp">Full Size Image</a><a style="display: inline-block; padding: 0 1.5%;" href="images/Michelle-Grant-2024-05-07T15_48_59.webp">Full Size Image</a><a style="display: inline-block; padding: 0 1.5%;" href="images/Michelle-Grant-2024-05-07T23_21_31.webp">Full Size Image</a><a style="display: inline-block; padding: 0 1.5%;" href="images/Michelle-Grant-2024-05-08T13_10_27.webp">Full Size Image</a></div>
+  <div id="request-estimate" class="section">
+    <div class="base-container w-container">
+      <div class="contacts-form-wrapper" style="opacity: 1; max-width: 640px; margin: 0 auto;">
+        <h2 class="contacts-form-title" style="text-align: center;">Request an Estimate</h2>
+        <div class="w-form">
+          <form id="request-estimate-form">
+            <input type="hidden" name="access_key" value="e3229d26-a545-4baf-9f2f-6d20afe34c90">
+            <input type="hidden" name="persona" value="short-term-rental">
+            <input type="hidden" name="subject" value="New Estimate Request - Too Good Maids (Short-Term Rental)">
+            <input type="hidden" name="from_name" value="Too Good Maids Website">
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+
+            <input type="text" name="name" placeholder="Your name" required maxlength="100" class="contacts-input w-input">
+            <input type="email" name="email" placeholder="Your email" required maxlength="120" class="contacts-input w-input">
+            <input type="tel" name="phone" placeholder="Your phone (optional)" maxlength="30" class="contacts-input w-input">
+            <select name="service_type" required class="contacts-input w-input">
+              <option value="">What kind of cleaning?</option>
+              <option value="home">Home cleaning</option>
+              <option value="commercial">Commercial / office</option>
+              <option value="short-term-rental" selected>Short-term rental turnover</option>
+              <option value="other">Other / not sure yet</option>
+            </select>
+            <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input">
+            <textarea name="message" placeholder="Tell us about the property - bedrooms/baths, typical turnover window, anything else we should know" maxlength="3000" rows="4" class="contacts-textarea w-input"></textarea>
+
+            <button type="submit" class="primary-red-button full-width w-button">Request an Estimate</button>
+
+            <div id="request-estimate-result" role="status" aria-live="polite" style="margin-top: 1em;"></div>
+          </form>
+          <script>
+            (function () {
+              var form = document.getElementById('request-estimate-form');
+              var result = document.getElementById('request-estimate-result');
+              var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzWlihJOHKLut8B93QkiWwn9yW3MN0B8tteDBc_7CJwraarrLJFAQ-QZ5ekUbuN9sI/exec';
+              if (!form) return;
+              form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                result.textContent = 'Sending…';
+                var data = new FormData(form);
+                var emailReq = fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+                  .then(function (r) { return r.json(); }).catch(function () { return { success: false }; });
+                var sheetReq = fetch(SHEET_URL, { method: 'POST', body: data })
+                  .then(function (r) { return r.json(); }).catch(function () { return { ok: false }; });
+                Promise.all([emailReq, sheetReq]).then(function (results) {
+                  if (results[0] && results[0].success) {
+                    result.innerHTML = '<strong>Thanks! We&rsquo;ll be in touch within 24 hours.</strong>';
+                    form.reset();
+                  } else {
+                    result.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:toogoodmaidscs@gmail.com">toogoodmaidscs@gmail.com</a>.';
+                  }
+                });
+              });
+            })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="section-footer-subscribe">
     <div class="base-container w-container">
       <div class="blue-estimate-wrapper">
         <div class="newsletter-wrap">
           <h2 data-w-id="014db8b6-0660-8f71-3aed-cbe8a0c4eec5" class="text-white">Contact us for your FREE Estimate!</h2>
-          <a data-w-id="e238cf9e-13f4-4f7e-d399-de373ceca7a6" href="https://www.supersaas.com/schedule/Bluedobiedev/Cleaning_Estimate_Booking" class="button w-button">Schedule Now!</a>
+          <a data-w-id="e238cf9e-13f4-4f7e-d399-de373ceca7a6" href="#request-estimate" class="button w-button">Request an Estimate</a>
         </div>
         <div class="all-prints-wrap our-offer">
           <div class="print-container discont"><img src="images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="background drawings" class="print-of-balls newsletter"><img src="images/Squiggles-Colorful_1Squiggles-Colorful.webp" loading="lazy" alt="background drawings" class="print-of-balls-2 newsletter"><img src="images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="background drawings" class="print-of-balls-3 newsletter"></div>
