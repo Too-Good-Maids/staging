@@ -20,11 +20,13 @@
   padding-right: 15px;
 }
 
-/* Webflow ships a "15vw L/R padding" rule for .section inside this section,
-   which assumed the parent was full-viewport. Now that the parent is
-   capped at 740px, that inner padding eats most of the column. Zero it
-   so the paragraphs fill the column properly. */
+/* Webflow ships several rules on .clean-so-good-section .section
+   (15vw L/R padding, plus width:70vw / width:90vw at different breakpoints)
+   that all assumed the parent was full-viewport. Now that the parent is
+   capped at 740px, those rules push the inner content off-center. Reset
+   width and padding so the inner sections fill the parent column properly. */
 .clean-so-good-section .section {
+  width: 100%;
   padding-left: 0;
   padding-right: 0;
 }
