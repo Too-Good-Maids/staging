@@ -31,14 +31,20 @@
   padding-right: 0;
 }
 
-/* Defensive: Webflow's IX2 animation engine hides [data-w-id] elements
-   (opacity:0) and fades them in via JS. When the JS hiccups (slow first
-   paint, blocked scripts, CDN issue with jQuery), those elements stay
-   invisible — making the page look broken. Force opacity:1 so content
-   is always visible regardless of whether IX2 runs. Trade-off: loses
-   the scroll-triggered fade-in animations site-wide. */
-[data-w-id] {
+/* Disable Webflow IX2 animations entirely. The animation engine sets
+   inline opacity:0 + translate3d() on elements as starting state of
+   scroll-triggered fade-ins. When the JS stalls (or even mid-animation
+   when scroll-detection mis-fires), elements sit half-faded and offset
+   — making headings invisible or content slid out of place. Catch BOTH
+   elements with data-w-id AND elements where inline style still has
+   the animation artifacts (the IX2 engine also animates descendants
+   that have no data-w-id of their own). */
+[data-w-id],
+[style*="opacity:0"],
+[style*="opacity: 0"],
+[style*="translate3d"] {
   opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Privacy policy page: long URLs and email addresses (e.g.
