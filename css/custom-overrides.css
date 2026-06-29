@@ -59,3 +59,28 @@
 .certificates-full {
   flex-wrap: wrap;
 }
+
+/* Tap targets: Webflow renders the FB/IG icons in the top nav at only
+   10-13px wide — way under the 44px recommended touch target. Expand
+   the tap area via padding without growing the icon visually. */
+.header-top-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+/* 404 page logo link was 10x29 — way under tap target. Make the entire
+   logo wrapper a comfortable tap zone back to home. */
+._404-logo-wrapper .brand-3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  box-sizing: border-box;
+}
