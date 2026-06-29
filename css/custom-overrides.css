@@ -40,3 +40,22 @@
 [data-w-id] {
   opacity: 1 !important;
 }
+
+/* Privacy policy page: long URLs and email addresses (e.g.
+   melanie.brown@bluedobiedev.com) sit in <p> elements that don't wrap
+   them by default, pushing the paragraph wider than the parent column
+   on mobile (was overflowing to ~410px in a 375px viewport). Allow the
+   long tokens to break. */
+#privacy p,
+#privacy li {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+/* Testimonials page: .certificates-full is a flex row of certificate
+   images with no flex-wrap, so on mobile the children laid out past
+   the right edge of the viewport. Allow wrapping to a second row. */
+.certificates-full {
+  flex-wrap: wrap;
+}
