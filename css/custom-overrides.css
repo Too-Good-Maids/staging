@@ -116,3 +116,29 @@
 .contacts-right-arrow {
   display: none !important;
 }
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.service-detail-label {
+  font-weight: 700;
+  color: #002434;
+}
+
+.service-detail-copy {
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .service-detail-copy {
+    margin-bottom: 1rem;
+  }
+}
