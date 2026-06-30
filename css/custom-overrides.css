@@ -116,3 +116,13 @@
 .contacts-right-arrow {
   display: none !important;
 }
+
+/* Accessibility: Webflow's CSS zeros `outline` on focused elements site-wide,
+   leaving keyboard users with no visible cue of where they are. Restore a
+   clear focus ring using :focus-visible (shows only on keyboard focus, not
+   mouse clicks — so it doesn't bother sighted mouse users). Brand red so it
+   reads as intentional brand element rather than an OS default. */
+:focus-visible {
+  outline: 2px solid #ff5b4a !important;
+  outline-offset: 2px !important;
+}
