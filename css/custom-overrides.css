@@ -90,3 +90,18 @@
   padding: 8px;
   box-sizing: border-box;
 }
+
+/* Widen page-hero wrappers from Webflow's 760px default to 1000px.
+   The Webflow template's hero wrappers cap content at 760 inside a
+   1200 container, which on wider desktop viewports leaves an empty
+   ~440px gap on the right that reads as unfinished/unbalanced. Going
+   to 1000 lets the content fill more of the available column without
+   pushing all the way to the container edge.
+   Intentionally NOT widening .section-title-wrapper — that 740 cap is
+   a reading-width constraint for body prose under section headings. */
+.banner-title-wrapper,
+.banner-title-wrapper-2,
+.banner-about-us-title-wrapper {
+  max-width: 1000px;
+  width: 100%;
+}
