@@ -392,18 +392,18 @@
             <input type="hidden" name="from_name" value="Too Good Maids Website">
             <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
-            <input type="text" name="name" placeholder="Your name" required maxlength="100" class="contacts-input w-input">
-            <input type="email" name="email" placeholder="Your email" required maxlength="120" class="contacts-input w-input">
-            <input type="tel" name="phone" placeholder="Your phone (optional)" maxlength="30" class="contacts-input w-input">
-            <select name="service_type" required class="contacts-input w-input">
+            <input type="text" name="name" placeholder="Your name" required maxlength="100" class="contacts-input w-input" aria-label="Name">
+            <input type="email" name="email" placeholder="Your email" required maxlength="120" class="contacts-input w-input" aria-label="Email">
+            <input type="tel" name="phone" placeholder="Your phone (optional)" maxlength="30" class="contacts-input w-input" aria-label="Phone (optional)">
+            <select name="service_type" required class="contacts-input w-input" aria-label="Cleaning service type">
               <option value="">What kind of cleaning?</option>
               <option value="home" selected>Home cleaning</option>
               <option value="commercial">Commercial / office</option>
               <option value="short-term-rental">Short-term rental turnover</option>
               <option value="other">Other / not sure yet</option>
             </select>
-            <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input">
-            <textarea name="message" placeholder="Tell us about the space - rooms, square footage, anything else we should know" maxlength="3000" rows="4" class="contacts-textarea w-input"></textarea>
+            <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input" aria-label="Preferred date or time (optional)">
+            <textarea name="message" placeholder="Tell us about the space - rooms, square footage, anything else we should know" maxlength="3000" rows="4" class="contacts-textarea w-input" aria-label="Project details"></textarea>
 
             <button type="submit" class="primary-red-button full-width w-button">Request an Estimate</button>
 

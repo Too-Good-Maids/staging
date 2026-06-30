@@ -142,3 +142,13 @@
     margin-bottom: 1rem;
   }
 }
+
+/* Accessibility: Webflow's CSS zeros `outline` on focused elements site-wide,
+   leaving keyboard users with no visible cue of where they are. Restore a
+   clear focus ring using :focus-visible (shows only on keyboard focus, not
+   mouse clicks — so it doesn't bother sighted mouse users). Brand red so it
+   reads as intentional brand element rather than an OS default. */
+:focus-visible {
+  outline: 2px solid #cc3a2b !important;
+  outline-offset: 2px !important;
+}
