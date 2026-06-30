@@ -123,6 +123,6 @@
    mouse clicks — so it doesn't bother sighted mouse users). Brand red so it
    reads as intentional brand element rather than an OS default. */
 :focus-visible {
-  outline: 2px solid #ff5b4a !important;
+  outline: 2px solid #cc3a2b !important;
   outline-offset: 2px !important;
 }
