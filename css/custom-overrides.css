@@ -105,3 +105,14 @@
   max-width: 1000px;
   width: 100%;
 }
+
+/* contact-us.html: the .contacts-location-slider is a Webflow slider
+   with only ONE slide (the office address). Its left/right arrows and
+   the 1px vertical divider between them have nothing to navigate, but
+   they render anyway and the divider reads as a stray vertical bar
+   floating near "Get in touch". Hide them. */
+.contacts-arrows-divider,
+.contacts-left-arrow,
+.contacts-right-arrow {
+  display: none !important;
+}
