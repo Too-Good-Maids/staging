@@ -26,3 +26,4 @@ npm-debug.log*
 
 # Webflow export artifacts
 *.webflow.backup
+.DS_Store
