@@ -86,8 +86,154 @@
     gtag('js', new Date());
     gtag('config', 'G-5Z85WWSYVK');
   </script>
-
-  
+  <style>
+    .review-section {
+      padding: 72px 0 56px;
+      background: #f8fbfc;
+    }
+    .review-intro {
+      max-width: 860px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+    .review-eyebrow {
+      color: #bd2330;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .review-intro h2 {
+      margin: 0 0 14px;
+      color: #002434;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+    }
+    .review-intro p {
+      color: #163746;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+    .review-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 36, 52, 0.12);
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(0, 36, 52, 0.10);
+      padding: 28px;
+      color: #002434;
+    }
+    .review-card.featured-review {
+      grid-column: 1 / -1;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .reviewer-name {
+      margin: 0 0 4px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+      color: #002434;
+    }
+    .review-meta {
+      margin: 0;
+      color: #54636b;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .review-stars {
+      white-space: nowrap;
+      color: #f4b400;
+      font-size: 1.15rem;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .review-body {
+      margin: 0;
+      color: #163746;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .review-body p {
+      margin: 0 0 1rem;
+    }
+    .review-body p:last-child {
+      margin-bottom: 0;
+    }
+    .legacy-review {
+      background: #ffffff;
+      border: 1px solid rgba(189, 35, 48, 0.25);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(0, 36, 52, 0.07);
+    }
+    .legacy-review h3 {
+      margin: 0 0 10px;
+      color: #002434;
+      font-size: 1.15rem;
+    }
+    .legacy-review p {
+      margin: 0;
+      color: #163746;
+      line-height: 1.65;
+    }
+    .promise-panel {
+      max-width: 980px;
+      margin: 56px auto 0;
+      padding: 36px;
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid rgba(0, 36, 52, 0.1);
+      box-shadow: 0 14px 38px rgba(0, 36, 52, 0.08);
+    }
+    .promise-panel h2 {
+      margin: 0 0 18px;
+      text-align: center;
+      color: #002434;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+    .promise-panel p {
+      color: #163746;
+      line-height: 1.7;
+    }
+    .promise-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+    .promise-list li {
+      background: #f8fbfc;
+      border-left: 4px solid #bd2330;
+      border-radius: 14px;
+      padding: 18px;
+      color: #163746;
+      line-height: 1.55;
+    }
+    @media (max-width: 767px) {
+      .review-section {
+        padding: 48px 0 40px;
+      }
+      .review-header {
+        flex-direction: column;
+      }
+      .review-card,
+      .promise-panel {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div data-animation="over-left" class="navigation-menu-home-transparent w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
@@ -202,62 +348,83 @@
     <div class="base-container-2 w-container">
       <div class="banner-title-wrapper-2 faq">
         <h1 class="banner-title-reviews" style="font-size: 2.75rem; margin-bottom: 5vh;">Trusted Cleaning Services in Western Kentucky:<br><span class="red-span-h1">Hear from Our Happy Clients!</span></h1>
-        <p>Finding reliable, high-quality cleaning services can feel like a challenge, but for clients of <strong>Too Good Maids</strong>, the choice is clear. Serving families, businesses, and rental property owners throughout western Kentucky, we’re committed to excellence in every service we provide. Don’t just take our word for it—see what our satisfied clients have to say!</p>
-        <h2 style="font-size: 2.25rem; margin-top: 5vh; margin-bottom: 5vh;">Why Clients Love Too Good Maids</h2>
-        <p>Our customers rely on us to keep their homes, offices, and rental properties sparkling clean. We offer a range of cleaning services in western Kentucky, from routine residential cleaning to comprehensive commercial and short-term rental clean-ups. Here’s what our clients value most about Too Good Maids:</p>      
+        <p>Finding reliable, high-quality cleaning services can feel like a challenge, but for clients of <strong>Too Good Maids</strong>, the choice is clear. Serving families, businesses, and rental property owners throughout western Kentucky, we’re committed to excellence in every service we provide. Don’t just take our word for it. See what our satisfied clients have to say!</p>
       </div>
     </div>
   </div>
-  <div class="testominials-cards-banner-2">
+  <section class="review-section">
     <div class="base-container-2 w-container">
-      <div class="testimonials-card-wrapper-2">
-        <div style="border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <h2 class="testimonials-card-title">Carla Musarra-Leonard</h2>
-            <p class="testimonials-card-content"><strong>Local Guide · 13 reviews · 1 photo · 3 months ago</strong><br><br>“I can't say enough good things about Michelle and Too Good Maids’ cleaning services. I rely on them to ensure my Airbnb runs smoothly.<br><br>Every time guests check out, the cleaners come in, clean up, and prepare the house so it is ready for the next booking. The deep cleans are thorough and meticulous: bathrooms sparkle, kitchens are spotless with appliances wiped down inside and out, floors are cleaned, linens are fresh and perfectly made, and every surface feels disinfected and inviting. Guests frequently comment on how clean the space is, which directly translates to higher ratings.<br><br>What truly sets TooGoodMaids apart, though, is their proactive and thoughtful approach. When supplies like toilet paper, paper towels, dish soap, trash bags, or laundry detergent start running low, Michelle messages me right away with a clear list so I can restock.<br><br>She is always reliable, communicates clearly, and works efficiently without ever cutting corners. She's professional, trustworthy, and genuinely cares about the property and the guest experience. I’m very thankful we found her, especially since she’s closer to the property than we are. She’s even checked on the gas tank for us and relit our pilot when we couldn’t be there.<br><br>If you're an Airbnb host looking for a cleaner who goes way beyond the basics, look no further. She's worth every penny and more. Thank you, Michelle and Too Good Maids. You make hosting so much easier and more enjoyable!”</p>
-          </div>
-        </div>
-        <div style="border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <h2 class="testimonials-card-title">Rachel Southard</h2>
-            <p class="testimonials-card-content"><strong>2 reviews · 3 months ago</strong><br><br>“We cannot say enough amazing things about our housekeeper! She is incredibly reliable, detail-oriented, and truly takes pride in her work. Every time she leaves, our home feels spotless, fresh, and so peaceful. As a busy Airbnb, having someone we completely trust to care for our home is priceless.<br><br>She goes above and beyond every single visit — noticing the little things, organizing beautifully, and always leaving thoughtful finishing touches. If you’re looking for someone dependable, thorough, and genuinely kind, we highly recommend her. She is an absolute gem.”</p>
-          </div>
-        </div>
-        <div style="border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <h2 class="testimonials-card-title">Craig Young</h2>
-            <p class="testimonials-card-content"><strong>6 reviews · 1 photo · 3 months ago</strong><br><br>“5 stars aren’t enough. This crew comes in and exceedingly gets the job done. Easy to communicate with. Zero problems !!”</p>
-          </div>
-        </div>
-        <div style="border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <h2 class="testimonials-card-title">Susan</h2>
-            <p class="testimonials-card-content">“Thank you for our Clean house 🏠!! You do a fantastic job!!😁 Have a great night!!&quot;</p>
-          </div>
-        </div>
-        <div style="border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <h2 class="testimonials-card-title">Opal</h2>
-            <p class="testimonials-card-content">“I can't express how much gratitude I have! Like I mentioned, it's more than a clean to me. You all have lifted my spirit in a rough season. I really appreciate that."</p>
-          </div>
-        </div>
-        <div style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);border: 3px solid red;" class="testimonials-card-item-2">
-          <div class="testimonials-card-item-3">
-            <p class="testimonials-card-content">“Super job on the house. Smells wonderful. My sneezing is better. 🤗 Thank you&quot;</p>
-          </div>
-        </div>
+      <div class="review-intro">
+        <div class="review-eyebrow">Real client reviews</div>
+        <h2>Why Clients Love Too Good Maids</h2>
+        <p>Our customers rely on us to keep their homes, offices, and rental properties sparkling clean. These reviews highlight the reliability, detail, and care that make Too Good Maids a trusted choice for Western Kentucky cleaning services.</p>
       </div>
-    <div style="margin: 0 10%;">
-      <h2 style="font-size: 2.25rem; margin-top: 10vh; margin-bottom: 5vh; text-align: center;">The Too Good Maids Difference:<br>Our Promise to You</h2>
-    <p>Our clients know they can trust Too Good Maids to provide consistently excellent cleaning services. Here’s what sets us apart:
-      
-      <ul class="testimonial">
-        <li class="testimonial-item"><strong>Certified and Experienced Team:</strong> Each of our cleaners is highly trained and certified, ensuring the highest level of service for your home or business.</li>
-        <li class="testimonial-item"><strong>Customizable Services:</strong> We work with you to create a cleaning plan that fits your needs and schedule, whether it’s weekly maintenance or a deep clean.</li>
-        <li class="testimonial-item"><strong>100% Satisfaction Guarantee:</strong> Your happiness is our priority. If you’re not completely satisfied with a cleaning, we’ll make it right—guaranteed!</li>
-      </ul>
-    </div>   
-  </div>
+      <div class="review-grid">
+        <article class="review-card featured-review">
+          <div class="review-header">
+            <div>
+              <h3 class="reviewer-name">Carla Musarra-Leonard</h3>
+              <p class="review-meta">Local Guide · 13 reviews · 1 photo · 3 months ago</p>
+            </div>
+            <div class="review-stars" aria-label="5 star review">★★★★★</div>
+          </div>
+          <div class="review-body">
+            <p>“I can't say enough good things about Michelle and Too Good Maids’ cleaning services. I rely on them to ensure my Airbnb runs smoothly.</p>
+            <p>Every time guests check out, the cleaners come in, clean up, and prepare the house so it is ready for the next booking. The deep cleans are thorough and meticulous: bathrooms sparkle, kitchens are spotless with appliances wiped down inside and out, floors are cleaned, linens are fresh and perfectly made, and every surface feels disinfected and inviting. Guests frequently comment on how clean the space is, which directly translates to higher ratings.</p>
+            <p>What truly sets TooGoodMaids apart, though, is their proactive and thoughtful approach. When supplies like toilet paper, paper towels, dish soap, trash bags, or laundry detergent start running low, Michelle messages me right away with a clear list so I can restock.</p>
+            <p>She is always reliable, communicates clearly, and works efficiently without ever cutting corners. She's professional, trustworthy, and genuinely cares about the property and the guest experience. I’m very thankful we found her, especially since she’s closer to the property than we are. She’s even checked on the gas tank for us and relit our pilot when we couldn’t be there.</p>
+            <p>If you're an Airbnb host looking for a cleaner who goes way beyond the basics, look no further. She's worth every penny and more. Thank you, Michelle and Too Good Maids. You make hosting so much easier and more enjoyable!”</p>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-header">
+            <div>
+              <h3 class="reviewer-name">Rachel Southard</h3>
+              <p class="review-meta">2 reviews · 3 months ago</p>
+            </div>
+            <div class="review-stars" aria-label="5 star review">★★★★★</div>
+          </div>
+          <div class="review-body">
+            <p>“We cannot say enough amazing things about our housekeeper! She is incredibly reliable, detail-oriented, and truly takes pride in her work. Every time she leaves, our home feels spotless, fresh, and so peaceful. As a busy Airbnb, having someone we completely trust to care for our home is priceless.</p>
+            <p>She goes above and beyond every single visit, noticing the little things, organizing beautifully, and always leaving thoughtful finishing touches. If you’re looking for someone dependable, thorough, and genuinely kind, we highly recommend her. She is an absolute gem.”</p>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-header">
+            <div>
+              <h3 class="reviewer-name">Craig Young</h3>
+              <p class="review-meta">6 reviews · 1 photo · 3 months ago</p>
+            </div>
+            <div class="review-stars" aria-label="5 star review">★★★★★</div>
+          </div>
+          <div class="review-body">
+            <p>“5 stars aren’t enough. This crew comes in and exceedingly gets the job done. Easy to communicate with. Zero problems !!”</p>
+          </div>
+        </article>
+        <article class="legacy-review">
+          <h3>Susan</h3>
+          <p>“Thank you for our clean house 🏠!! You do a fantastic job!!😁 Have a great night!!”</p>
+        </article>
+        <article class="legacy-review">
+          <h3>Opal</h3>
+          <p>“I can't express how much gratitude I have! Like I mentioned, it's more than a clean to me. You all have lifted my spirit in a rough season. I really appreciate that.”</p>
+        </article>
+        <article class="legacy-review">
+          <h3>Happy Client</h3>
+          <p>“Super job on the house. Smells wonderful. My sneezing is better. 🤗 Thank you.”</p>
+        </article>
+      </div>
+      <div class="promise-panel">
+        <h2>The Too Good Maids Difference:<br>Our Promise to You</h2>
+        <p>Our clients know they can trust Too Good Maids to provide consistently excellent cleaning services. Here’s what sets us apart:</p>
+        <ul class="promise-list">
+          <li><strong>Certified and Experienced Team:</strong> Each of our cleaners is highly trained and certified, ensuring the highest level of service for your home or business.</li>
+          <li><strong>Customizable Services:</strong> We work with you to create a cleaning plan that fits your needs and schedule, whether it’s weekly maintenance or a deep clean.</li>
+          <li><strong>100% Satisfaction Guarantee:</strong> Your happiness is our priority. If you’re not completely satisfied with a cleaning, we’ll make it right, guaranteed!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <div class="section">
     <div class="base-container w-container">
       <div data-w-id="9e38f4e7-cbcf-49cb-8a56-f7e93f1648a2" style="opacity:0" class="testimonials-block">
