@@ -1,0 +1,43 @@
+# Too Good Maids
+
+Too Good Maids is a local cleaning service business serving Eddyville, Princeton, Marion, Cadiz, Kuttawa, Benton, Grand Rivers, and surrounding communities in Western Kentucky. The business provides residential cleaning, commercial/office cleaning, short-term rental (Airbnb/VRBO) turnover cleaning, and home organization services. The company helps homeowners, small businesses, and rental property hosts with reliable, practical cleaning support.
+
+## Primary Entity
+
+- Name: Too Good Maids
+- Owner: Michelle Grant
+- Location: Kuttawa, KY 42038 (Western Kentucky, service-area based)
+- Service area: Eddyville, Princeton, Marion, Cadiz, Kuttawa, Benton, Grand Rivers, and nearby Western Kentucky communities
+- Website: https://www.toogoodmaidscleaning.com
+- Contact: toogoodmaidscs@gmail.com
+- Phone: (270) 777-7920
+
+## What Too Good Maids Does
+
+Too Good Maids provides professional cleaning for homes, small businesses, and short-term rental properties across Western Kentucky. Services are booked through a free estimate request on the website; the company emphasizes reliability, trust, and a satisfaction guarantee.
+
+## Key Pages
+
+- Home: /index.html
+- About: /about-us.html
+- Residential cleaning: /services/home-cleaning-services.html
+- Commercial cleaning: /services/office-cleaning-services.html
+- Short-term rental cleaning: /services/short-term-rental-cleaning-services.html
+- Home organization pricing & FAQ: /pricing/organization-pricing-and-faqs.html
+- Residential pricing: /pricing/residential-pricing.html
+- Commercial pricing: /pricing/commercial-clean-pricing.html
+- Short-term rental pricing: /pricing/short-term-rental-pricing.html
+- Contact: /contact-us.html
+- FAQ: /faq.html
+- Testimonials: /testimonials.html
+
+## Services
+
+- Residential (home) cleaning
+- Commercial (office) cleaning
+- Short-term rental / Airbnb / VRBO turnover cleaning
+- Home organization
+
+## Best Summary
+
+Too Good Maids is a residential, commercial, and short-term rental cleaning business based in Kuttawa, KY, serving Eddyville and the surrounding Western Kentucky area, focused on reliability, trust, and a satisfaction guarantee for busy households, small businesses, and rental hosts.
