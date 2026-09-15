@@ -17,7 +17,7 @@ lastmod). Launch day is: **DNS → merge `launch` → verify → Search Console.
 - [x] Dedupe GA4 tag on `index.html` — now `G-5Z85WWSYVK` everywhere
 - [x] Staging Pages deploy green (had been failing since 2026-07-06)
 - [ ] Michelle's final design sign-off
-- [ ] In **GA4 admin**, change Data Stream URL from `toogoodmaidscleaning.org` → `toogoodmaidscleaning.com`
+- [x] GA4 already configured for the `.com` stream — no admin change needed
 - [ ] Confirm `G-5Z85WWSYVK` is the GA4 property Michelle actually uses (the old
       Webflow site also fired `G-3XPBT7BZ10`; if that's her dashboard, swap the ID on all 22 pages)
 
