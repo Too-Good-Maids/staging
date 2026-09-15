@@ -18,8 +18,7 @@ lastmod). Launch day is: **DNS → merge `launch` → verify → Search Console.
 - [x] Staging Pages deploy green (had been failing since 2026-07-06)
 - [ ] Michelle's final design sign-off
 - [x] GA4 already configured for the `.com` stream — no admin change needed
-- [ ] Confirm `G-5Z85WWSYVK` is the GA4 property Michelle actually uses (the old
-      Webflow site also fired `G-3XPBT7BZ10`; if that's her dashboard, swap the ID on all 22 pages)
+- [x] `G-5Z85WWSYVK` confirmed as Michelle's GA4 property; `G-3XPBT7BZ10` removed
 
 ---
 
