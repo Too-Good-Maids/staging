@@ -16,7 +16,7 @@ lastmod). Launch day is: **DNS → merge `launch` → verify → Search Console.
 - [x] Re-host Webflow CDN `og:image` files locally (commit `65e40af`)
 - [x] Dedupe GA4 tag on `index.html` — now `G-5Z85WWSYVK` everywhere
 - [x] Staging Pages deploy green (had been failing since 2026-07-06)
-- [ ] Michelle's final design sign-off
+- [x] Michelle's final design sign-off (2026-09-15)
 - [x] GA4 already configured for the `.com` stream — no admin change needed
 - [x] `G-5Z85WWSYVK` confirmed as Michelle's GA4 property; `G-3XPBT7BZ10` removed
 
