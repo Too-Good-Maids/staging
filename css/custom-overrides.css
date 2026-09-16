@@ -160,5 +160,5 @@
    character per line. Give the embed a real width so it can lay out. */
 .banner-title-wrapper-2 .w-embed {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px; /* PayPal caps its form at 399px; match it so the form is centered */
 }
