@@ -3,7 +3,7 @@
 **Staging URL:** `https://too-good-maids.github.io/staging/`
 **Production URL:** `https://www.toogoodmaidscleaning.com`
 **DNS lives in:** Hostinger (nameservers `ns1/ns2.dns-parking.com`)
-**Currently live on the domain:** the old Webflow site
+**Launched:** 2026-09-16 — new site live on the domain, HTTPS enforced, sitemap submitted to Search Console
 
 All launch-day *code* changes are already prepared on the `launch` branch
 (CNAME, noindex tags stripped, root-relative paths, robots.txt, sitemap
@@ -77,7 +77,7 @@ gh run list -R Too-Good-Maids/staging -L 1
 Quick script — every sitemap URL should return 200:
 
 ```bash
-grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed 's/<\/\?loc>//g' | while read u; do printf "%s  %s\n" "$(curl -s -o /dev/null -w '%{http_code}' "$u")" "$u"; done
+grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed -E 's#</?loc>##g' | while IFS= read -r u; do printf "%s  %s\n" "$(curl -s -o /dev/null -w '%{http_code}' "$u")" "$u"; done
 ```
 
 ### 4. Smoke test
@@ -95,7 +95,7 @@ grep -oE '<loc>[^<]+</loc>' sitemap.xml | sed 's/<\/\?loc>//g' | while read u; d
 
 ### 6. After launch
 
-- [ ] Wait 24–48 h, then confirm Search Console shows pages as indexed
+- [ ] Wait 24–48 h (from 2026-09-16), then confirm Search Console shows pages as indexed
 - [ ] Once confident, unpublish / cancel the Webflow site (no assets depend on it any more)
 - [ ] Delete the `launch` branch
 
