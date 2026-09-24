@@ -31,6 +31,15 @@ for html_file in sorted(ROOT.rglob("*.html")):
             target = ROOT / path_part.lstrip("/")
         else:
             target = (file_dir / path_part).resolve()
+        # extensionless canonical URLs (/about-us) are served by GitHub Pages
+        # from the matching .html file; "/" means index.html
+        if not target.exists():
+            if path_part == "/":
+                target = ROOT / "index.html"
+            elif target.with_suffix(".html").exists():
+                target = target.with_suffix(".html")
+            elif (target / "index.html").exists():
+                target = target / "index.html"
         if not target.exists():
             broken.append((str(rel_file), raw, "target file does not exist"))
             continue
@@ -55,6 +64,13 @@ for html_file in sorted(ROOT.rglob("*.html")):
             target = ROOT / path_part.lstrip("/")
         else:
             target = (file_dir / path_part).resolve()
+        if not target.exists():
+            if path_part == "/":
+                target = ROOT / "index.html"
+            elif target.with_suffix(".html").exists():
+                target = target.with_suffix(".html")
+            elif (target / "index.html").exists():
+                target = target / "index.html"
         if not target.exists():
             broken.append((str(rel_file), raw, "onclick target does not exist"))
 
