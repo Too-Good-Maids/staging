@@ -139,6 +139,7 @@
   ]
 }
 </script>
+  <script src="/js/track-contact.js" defer></script>
 </head>
 <body>
   <div data-animation="over-left" class="navigation-menu-home-transparent w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
@@ -429,6 +430,13 @@
                   .then(function (r) { return r.json(); }).catch(function () { return { ok: false }; });
                 Promise.all([emailReq, sheetReq]).then(function (results) {
                   if (results[0] && results[0].success) {
+                    // GA4: report the lead so acquisition reports can attribute it
+                    if (typeof gtag === 'function') {
+                      gtag('event', 'generate_lead', {
+                        service_type: (data.get('service_type') || 'unspecified'),
+                        persona: (data.get('persona') || form.getAttribute('data-persona') || 'unspecified')
+                      });
+                    }
                     result.innerHTML = '<strong>Thanks! We&rsquo;ll be in touch within 24 hours.</strong>';
                     form.reset();
                   } else {

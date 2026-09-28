@@ -123,6 +123,7 @@
   ]
 }
 </script>
+  <script src="/js/track-contact.js" defer></script>
 </head>
 <body>
   <div style="width:auto; max-width: 95%;">
@@ -345,6 +346,13 @@
                   Promise.all([emailReq, sheetReq]).then(function (results) {
                     var emailOk = results[0] && results[0].success;
                     if (emailOk) {
+                      // GA4: report the lead so acquisition reports can attribute it
+                      if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                          service_type: (data.get('service_type') || 'unspecified'),
+                          persona: (data.get('persona') || form.getAttribute('data-persona') || 'unspecified')
+                        });
+                      }
                       result.innerHTML = '<strong>Thanks! We’ll be in touch within 24 hours.</strong>';
                       form.reset();
                     } else {
