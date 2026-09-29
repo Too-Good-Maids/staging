@@ -456,10 +456,15 @@
                 e.preventDefault();
                 result.textContent = 'Sending…';
                 var data = new FormData(form);
-                fetch(SHEET_URL, { method: 'POST', body: data })
+                var submitReq = fetch(SHEET_URL, { method: 'POST', body: data })
                   .then(function (r) { return r.json(); })
-                  .catch(function () { return { ok: false }; })
-                  .then(function (res) {
+                  .catch(function () { return { ok: false }; });
+                // A hung request never rejects, so race it: without this the customer
+                // sits on 'Sending...' forever and never learns anything went wrong.
+                var timeoutReq = new Promise(function (resolve) {
+                  setTimeout(function () { resolve({ ok: false, timedOut: true }); }, 20000);
+                });
+                Promise.race([submitReq, timeoutReq]).then(function (res) {
                   if (res && res.ok) {
                     // GA4: report the lead so acquisition reports can attribute it
                     if (typeof gtag === 'function') {
@@ -470,6 +475,8 @@
                     }
                     result.innerHTML = '<strong>Thanks! We&rsquo;ll be in touch within 24 hours.</strong>';
                     form.reset();
+                  } else if (res && res.timedOut) {
+                    result.innerHTML = 'This is taking longer than usual. Your request may still have reached us &mdash; if you don&rsquo;t hear back within 24 hours, please email <a href="mailto:toogoodmaidscs@gmail.com">toogoodmaidscs@gmail.com</a> or call <a href="tel:+12707777920">(270) 777-7920</a>.';
                   } else {
                     result.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:toogoodmaidscs@gmail.com">toogoodmaidscs@gmail.com</a>.';
                   }
