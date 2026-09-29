@@ -17,6 +17,9 @@
  * rule caught it and I'll loosen that rule.
  */
 
+// Where lead notifications go.
+var NOTIFY_TO = 'toogoodmaidscs@gmail.com';
+
 // Flip to true only AFTER the site is deployed with the matching hidden token
 // field. Until then a required token would reject every real submission.
 var REQUIRE_TOKEN = false;
@@ -60,7 +63,13 @@ function doPost(e) {
       data.from_name || ''
     ]);
 
-    return tgmJsonOut({ ok: true });
+    // Email Michelle. Deliberately after appendRow and inside its own
+    // try/catch: a mail failure must never cost us the logged lead.
+    var emailed = true;
+    try { notifyMichelle(data); }
+    catch (mailErr) { emailed = false; logMailFailure(ss, data, mailErr); }
+
+    return tgmJsonOut({ ok: true, emailed: emailed });
   } catch (err) {
     return tgmJsonOut({ ok: false, error: String(err) });
   }
@@ -166,6 +175,57 @@ function logBlocked(ss, data, reason) {
 function tgmJsonOut(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * Send the lead to Michelle. Sends from the script owner's Google account
+ * with Reply-To set to the customer, so hitting reply in Gmail answers the
+ * customer directly rather than the website.
+ *
+ * Only clean submissions reach this — screenSubmission() has already run, so
+ * spam never generates an email.
+ */
+function notifyMichelle(data) {
+  var name    = String(data.name || '').trim() || 'Someone';
+  var service = String(data.service_type || '').trim();
+  var persona = String(data.persona || '').trim();
+  var email   = String(data.email || '').trim();
+
+  var subject = 'New estimate request: ' + name + (service ? ' (' + service + ')' : '');
+
+  var lines = [
+    'Name:           ' + name,
+    'Email:          ' + email,
+    'Phone:          ' + (data.phone || '(not given)'),
+    'Service:        ' + (service || '(not given)'),
+    'Preferred date: ' + (data.preferred_date || '(not given)'),
+    'Came in via:    ' + (persona || 'contact page'),
+    '',
+    'What they said:',
+    String(data.message || '(no message)'),
+    '',
+    '---',
+    'Sent automatically from toogoodmaidscleaning.com.',
+    'Reply to this email and it goes straight to the customer.',
+    'Every request is also logged in the TGM Contact Form Info sheet.'
+  ];
+
+  var options = { name: 'Too Good Maids Website' };
+  if (email) options.replyTo = email;
+
+  MailApp.sendEmail(NOTIFY_TO, subject, lines.join('\n'), options);
+}
+
+/** If the mail ever fails, record it next to the lead rather than losing it. */
+function logMailFailure(ss, data, err) {
+  try {
+    var tab = ss.getSheetByName('Mail failures');
+    if (!tab) {
+      tab = ss.insertSheet('Mail failures');
+      tab.appendRow(['Timestamp', 'Error', 'Name', 'Email', 'Phone']);
+    }
+    tab.appendRow([new Date(), String(err), data.name || '', data.email || '', data.phone || '']);
+  } catch (ignored) {}
 }
 
 function doGet() {
