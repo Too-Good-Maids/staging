@@ -140,6 +140,7 @@
 }
 </script>
   <script src="/js/track-contact.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <div data-animation="over-left" class="navigation-menu-home-transparent w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
@@ -409,6 +410,7 @@
             <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input" aria-label="Preferred date or time (optional)">
             <textarea name="message" placeholder="Tell us about the property - bedrooms/baths, typical turnover window, anything else we should know" maxlength="3000" rows="4" class="contacts-textarea w-input" aria-label="Project details"></textarea>
 
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAFI8HdMZ-fT3Pv1N" data-theme="light" style="margin-bottom:1em;"></div>
             <button type="submit" class="primary-red-button full-width w-button">Request an Estimate</button>
 
             <div id="request-estimate-result" role="status" aria-live="polite" style="margin-top: 1em;"></div>
@@ -421,6 +423,11 @@
               if (!form) return;
               form.addEventListener('submit', function (e) {
                 e.preventDefault();
+                var cfToken = (form.querySelector('[name="cf-turnstile-response"]') || {}).value;
+                if (!cfToken) {
+                  result.innerHTML = 'Please complete the &ldquo;I&rsquo;m not a robot&rdquo; check just above the button, then try again.';
+                  return;
+                }
                 result.textContent = 'Sending…';
                 var data = new FormData(form);
                 var submitReq = fetch(SHEET_URL, { method: 'POST', body: data })

@@ -25,6 +25,13 @@ var NOTIFY_TO = 'toogoodmaidscs@gmail.com';
 var REQUIRE_TOKEN = false;
 var FORM_TOKEN = 'tgm-2026-kuttawa';
 
+// Cloudflare Turnstile. Paste the SECRET key from the Turnstile dashboard
+// below (the site key is public and already lives in the page; the secret
+// belongs only here). Then flip REQUIRE_TURNSTILE to true - but not before
+// the site is live with the widget, or every real submission is rejected.
+var TURNSTILE_SECRET = 'PASTE_TURNSTILE_SECRET_KEY_HERE';
+var REQUIRE_TURNSTILE = false;
+
 // Two submissions from the same email inside this many seconds = a retry loop.
 var DEDUPE_SECONDS = 60;
 
@@ -112,7 +119,31 @@ function screenSubmission(data, sheet) {
   // 6. Same email again within the minute - a retry loop, not a person.
   if (isRecentDuplicate(sheet, email)) return 'duplicate within ' + DEDUPE_SECONDS + 's';
 
+  // 7. Turnstile last: it is the only check that costs a network round trip,
+  //    so obvious spam is already gone before we spend one.
+  if (REQUIRE_TURNSTILE) {
+    var cf = String(data['cf-turnstile-response'] || '');
+    if (!cf) return 'no turnstile token';
+    if (!verifyTurnstile(cf)) return 'turnstile failed';
+  }
+
   return '';
+}
+
+/** Ask Cloudflare whether this Turnstile token is genuine. */
+function verifyTurnstile(token) {
+  try {
+    var r = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'post',
+      payload: { secret: TURNSTILE_SECRET, response: token },
+      muteHttpExceptions: true
+    });
+    return JSON.parse(r.getContentText()).success === true;
+  } catch (err) {
+    // Never let a Cloudflare outage silently swallow real leads: if we cannot
+    // reach them, let the submission through. Everything else still screened it.
+    return true;
+  }
 }
 
 /**
