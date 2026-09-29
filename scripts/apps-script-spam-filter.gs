@@ -142,20 +142,46 @@ function screenSubmission(data, sheet) {
   return '';
 }
 
-/** Ask Cloudflare whether this Turnstile token is genuine. */
+/**
+ * Ask Cloudflare whether this Turnstile token is genuine.
+ *
+ * Returns true (allow) / false (block). It still fails OPEN if Cloudflare
+ * cannot be reached, so an outage there never swallows real leads - but every
+ * such failure is now recorded on a "Turnstile errors" tab. Without that, a
+ * missing UrlFetchApp permission looked exactly like a pass, and forged
+ * tokens sailed through with nothing to show for it.
+ */
 function verifyTurnstile(token, secret) {
+  var raw = '';
   try {
     var r = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'post',
       payload: { secret: secret, response: token },
       muteHttpExceptions: true
     });
-    return JSON.parse(r.getContentText()).success === true;
+    raw = r.getContentText();
+    var body = JSON.parse(raw);
+    if (body.success === true) return true;
+    // A definite "no" from Cloudflare. Block, and do not log - this is the
+    // filter doing its job, not a fault.
+    return false;
   } catch (err) {
-    // Never let a Cloudflare outage silently swallow real leads: if we cannot
-    // reach them, let the submission through. Everything else still screened it.
+    logTurnstileError(String(err), raw);
     return true;
   }
+}
+
+/** Record verification faults so failing open is never silent. */
+function logTurnstileError(err, raw) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var tab = ss.getSheetByName('Turnstile errors');
+    if (!tab) {
+      tab = ss.insertSheet('Turnstile errors');
+      tab.appendRow(['Timestamp', 'Error', 'Cloudflare response']);
+    }
+    tab.appendRow([new Date(), err, String(raw).slice(0, 500)]);
+  } catch (ignored) {}
 }
 
 /**
@@ -286,6 +312,20 @@ function testSetup() {
   Logger.log('Leads tab found: ' + !!ss.getSheetByName(LEADS_SHEET));
   Logger.log('Form token required: ' + REQUIRE_TOKEN);
   Logger.log('Turnstile secret set: ' + (getTurnstileSecret() ? 'yes' : 'NO - add it in Script Properties'));
+  // Deliberately call out to Cloudflare with a token we know is invalid. A
+  // healthy setup logs success=false. A permission or network fault throws
+  // here, in the open, instead of being quietly treated as a pass.
+  var secret = getTurnstileSecret();
+  if (secret) {
+    var probe = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'post',
+      payload: { secret: secret, response: 'deliberately-invalid' },
+      muteHttpExceptions: true
+    });
+    Logger.log('Cloudflare reachable, replied: ' + probe.getContentText());
+    Logger.log('Expect success:false above. If you see an error instead, Turnstile is NOT protecting the form.');
+  }
+
   MailApp.sendEmail(NOTIFY_TO, 'Too Good Maids: setup test',
     'If this arrives, the script can send mail. Nothing else to do.',
     { name: 'Too Good Maids Website' });
