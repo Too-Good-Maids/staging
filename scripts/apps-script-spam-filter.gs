@@ -27,15 +27,21 @@ var NOTIFY_TO = 'toogoodmaidscs@gmail.com';
 
 // Flip to true only AFTER the site is deployed with the matching hidden token
 // field. Until then a required token would reject every real submission.
-var REQUIRE_TOKEN = false;
+var REQUIRE_TOKEN = true;
 var FORM_TOKEN = 'tgm-2026-kuttawa';
 
-// Cloudflare Turnstile. Paste the SECRET key from the Turnstile dashboard
-// below (the site key is public and already lives in the page; the secret
-// belongs only here). Then flip REQUIRE_TURNSTILE to true - but not before
-// the site is live with the widget, or every real submission is rejected.
-var TURNSTILE_SECRET = 'PASTE_TURNSTILE_SECRET_KEY_HERE';
-var REQUIRE_TURNSTILE = false;
+// Cloudflare Turnstile. The secret lives in Script Properties, NOT in this
+// file - Project Settings > Script Properties > add TURNSTILE_SECRET. That
+// keeps it out of version control and means re-pasting this file can never
+// wipe it. Setting the property is what switches Turnstile on; there is no
+// separate flag to remember.
+function getTurnstileSecret() {
+  try {
+    return PropertiesService.getScriptProperties().getProperty('TURNSTILE_SECRET') || '';
+  } catch (err) {
+    return '';
+  }
+}
 
 // Two submissions from the same email inside this many seconds = a retry loop.
 var DEDUPE_SECONDS = 60;
@@ -126,21 +132,22 @@ function screenSubmission(data, sheet) {
 
   // 7. Turnstile last: it is the only check that costs a network round trip,
   //    so obvious spam is already gone before we spend one.
-  if (REQUIRE_TURNSTILE) {
+  var secret = getTurnstileSecret();
+  if (secret) {
     var cf = String(data['cf-turnstile-response'] || '');
     if (!cf) return 'no turnstile token';
-    if (!verifyTurnstile(cf)) return 'turnstile failed';
+    if (!verifyTurnstile(cf, secret)) return 'turnstile failed';
   }
 
   return '';
 }
 
 /** Ask Cloudflare whether this Turnstile token is genuine. */
-function verifyTurnstile(token) {
+function verifyTurnstile(token, secret) {
   try {
     var r = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'post',
-      payload: { secret: TURNSTILE_SECRET, response: token },
+      payload: { secret: secret, response: token },
       muteHttpExceptions: true
     });
     return JSON.parse(r.getContentText()).success === true;
@@ -266,4 +273,21 @@ function logMailFailure(ss, data, err) {
 
 function doGet() {
   return ContentService.createTextOutput("Too Good Maids form webhook is live.");
+}
+
+/**
+ * Run this from the editor (pick testSetup in the function dropdown, press
+ * Run) to check the script's own configuration. Unlike a real submission it
+ * does NOT catch errors, so a missing permission shows up as a red error and
+ * Apps Script prompts for the authorization it needs.
+ */
+function testSetup() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  Logger.log('Leads tab found: ' + !!ss.getSheetByName(LEADS_SHEET));
+  Logger.log('Form token required: ' + REQUIRE_TOKEN);
+  Logger.log('Turnstile secret set: ' + (getTurnstileSecret() ? 'yes' : 'NO - add it in Script Properties'));
+  MailApp.sendEmail(NOTIFY_TO, 'Too Good Maids: setup test',
+    'If this arrives, the script can send mail. Nothing else to do.',
+    { name: 'Too Good Maids Website' });
+  Logger.log('Test email sent to ' + NOTIFY_TO);
 }
