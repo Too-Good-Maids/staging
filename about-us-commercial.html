@@ -393,10 +393,8 @@
         <h2 class="contacts-form-title" style="text-align: center;">Request an Estimate</h2>
         <p style="text-align:center;margin:-0.5em 0 1.5em;color:#4a5a66;font-size:0.95rem;">Want a ballpark first? <a href="/pricing/commercial-clean-pricing" style="color:#cc3a2b;font-weight:600;">See commercial cleaning pricing</a></p>
         <div class="w-form">
-          <form id="request-estimate-form" action="https://api.web3forms.com/submit" method="POST" class="w-form">
-            <input type="hidden" name="access_key" value="e3229d26-a545-4baf-9f2f-6d20afe34c90">
+          <form id="request-estimate-form" method="POST" class="w-form">
             <input type="hidden" name="persona" value="commercial">
-            <input type="hidden" name="subject" value="New Estimate Request - Too Good Maids (Commercial)">
             <input type="hidden" name="from_name" value="Too Good Maids Website">
             <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
@@ -427,12 +425,11 @@
                 e.preventDefault();
                 result.textContent = 'Sending…';
                 var data = new FormData(form);
-                var emailReq = fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-                  .then(function (r) { return r.json(); }).catch(function () { return { success: false }; });
-                var sheetReq = fetch(SHEET_URL, { method: 'POST', body: data })
-                  .then(function (r) { return r.json(); }).catch(function () { return { ok: false }; });
-                Promise.all([emailReq, sheetReq]).then(function (results) {
-                  if (results[0] && results[0].success) {
+                fetch(SHEET_URL, { method: 'POST', body: data })
+                  .then(function (r) { return r.json(); })
+                  .catch(function () { return { ok: false }; })
+                  .then(function (res) {
+                  if (res && res.ok) {
                     // GA4: report the lead so acquisition reports can attribute it
                     if (typeof gtag === 'function') {
                       gtag('event', 'generate_lead', {
