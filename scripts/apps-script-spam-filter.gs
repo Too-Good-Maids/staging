@@ -41,7 +41,7 @@ function doPost(e) {
     var reject = screenSubmission(data, sheet);
     if (reject) {
       logBlocked(ss, data, reject);
-      return json({ ok: false, blocked: reject });
+      return tgmJsonOut({ ok: false, blocked: reject });
     }
 
     if (sheet.getLastRow() === 0) {
@@ -60,9 +60,9 @@ function doPost(e) {
       data.from_name || ''
     ]);
 
-    return json({ ok: true });
+    return tgmJsonOut({ ok: true });
   } catch (err) {
-    return json({ ok: false, error: String(err) });
+    return tgmJsonOut({ ok: false, error: String(err) });
   }
 }
 
@@ -163,7 +163,11 @@ function logBlocked(ss, data, reason) {
   }
 }
 
-function json(obj) {
+function tgmJsonOut(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function doGet() {
+  return ContentService.createTextOutput("Too Good Maids form webhook is live.");
 }
