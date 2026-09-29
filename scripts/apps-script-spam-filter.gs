@@ -17,6 +17,11 @@
  * rule caught it and I'll loosen that rule.
  */
 
+// The tab good leads are written to. Named explicitly rather than trusting
+// getActiveSheet(), which is ambiguous now that the workbook has three tabs
+// and would put leads in the wrong one if it ever resolved to Blocked.
+var LEADS_SHEET = 'Success';
+
 // Where lead notifications go.
 var NOTIFY_TO = 'toogoodmaidscs@gmail.com';
 
@@ -38,7 +43,7 @@ var DEDUPE_SECONDS = 60;
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getActiveSheet();
+    var sheet = ss.getSheetByName(LEADS_SHEET) || ss.getSheets()[0];
 
     var data = {};
     if (e.postData && e.postData.contents) {
