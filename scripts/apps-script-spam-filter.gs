@@ -1,5 +1,5 @@
 /**
- * TGM Form Processing — hardened doPost.
+ * TGM Form Processing - hardened doPost.
  *
  * Replaces the existing doPost() in the "TGM Form Processing" Apps Script
  * (bound to the "TGM Contact Form Info" sheet). Paste over the old function,
@@ -7,7 +7,7 @@
  * deployment > Version: New > Deploy. Keep the SAME deployment so the URL in
  * the site doesn't change.
  *
- * WHY: the old doPost wrote every POST it received straight to the sheet — no
+ * WHY: the old doPost wrote every POST it received straight to the sheet - no
  * honeypot check, no validation. The endpoint URL is visible in the page
  * source, so bots were posting to it directly, three times a second in places.
  *
@@ -100,16 +100,16 @@ function screenSubmission(data, sheet) {
 
   // 4. Message that is nothing but digits. Every spam row in this sheet put a
   //    phone number here; every genuine lead wrote a sentence about their
-  //    home. An empty message is fine — only a digits-only one is not.
+  //    home. An empty message is fine - only a digits-only one is not.
   if (message && /^[\d\s()+.-]+$/.test(message)) return 'numeric message';
 
   // 5. Gibberish name: caps scattered mid-word AMONG lowercase, the signature
   //    of a random string generator. Checked per word, and a word in all caps
-  //    is skipped — that's caps lock, not a bot. Clears McDonald, MacIntyre,
+  //    is skipped - that's caps lock, not a bot. Clears McDonald, MacIntyre,
   //    JoAnne, DeAndre, and JOHN SMITH alike.
   if (hasGibberishWord(name)) return 'gibberish name';
 
-  // 6. Same email again within the minute — a retry loop, not a person.
+  // 6. Same email again within the minute - a retry loop, not a person.
   if (isRecentDuplicate(sheet, email)) return 'duplicate within ' + DEDUPE_SECONDS + 's';
 
   return '';
@@ -117,7 +117,7 @@ function screenSubmission(data, sheet) {
 
 /**
  * True if any single word mixes lowercase with 3+ capitals after its first
- * letter — e.g. "JwXhCtudvfILBa". A word with no lowercase at all (JOHN,
+ * letter - e.g. "JwXhCtudvfILBa". A word with no lowercase at all (JOHN,
  * TESTING) is caps lock and is skipped.
  */
 function hasGibberishWord(str) {
@@ -182,7 +182,7 @@ function tgmJsonOut(obj) {
  * with Reply-To set to the customer, so hitting reply in Gmail answers the
  * customer directly rather than the website.
  *
- * Only clean submissions reach this — screenSubmission() has already run, so
+ * Only clean submissions reach this - screenSubmission() has already run, so
  * spam never generates an email.
  */
 function notifyMichelle(data) {
