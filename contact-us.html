@@ -137,8 +137,8 @@
         </div>
         <div class="socials-link-right-wrapper">
           <div class="connect-socials">
-            <a href="https://www.facebook.com/profile.php?id=100087897074261" target="_blank" rel="noopener" class="header-top-link"><span class="header-social-icon"></span></a>
-            <a href="https://www.instagram.com/toogoodmaids" target="_blank" rel="noopener" class="header-top-link"><span class="header-social-icon"></span></a>
+            <a href="https://www.facebook.com/profile.php?id=100087897074261" target="_blank" rel="noopener" class="header-top-link" aria-label="Facebook"><span class="header-social-icon" aria-hidden="true"></span></a>
+            <a href="https://www.instagram.com/toogoodmaids" target="_blank" rel="noopener" class="header-top-link" aria-label="Instagram"><span class="header-social-icon" aria-hidden="true"></span></a>
           </div>
         </div>
       </div>
@@ -244,9 +244,9 @@
     </div>
     <div class="overlay-mini-height">
       <div class="all-prints-wrap blog-grid">
-        <div class="print-container our-blog-page"><img src="/images/Squiggles-Colorful-7_1Squiggles-Colorful-7.webp" loading="lazy" alt="background drawings" class="print-of-balls blog-grid-print"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="background drawings" class="print-of-balls-2 blog-grid-print"><img src="/images/Squiggles-Colorful-8_1Squiggles-Colorful-8.webp" loading="lazy" alt="background drawings" class="print-of-balls-3 blog-grid-print"></div>
-        <div class="print-container"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="background drawings" class="print-lightning blog-grid-print"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="background drawings" class="print-lightning-2 blog-grid-print"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="background drawings" class="print-lightning-3 blog-grid-print"></div>
-        <div class="print-container"><img src="/images/Squiggles-Colorful-7_1Squiggles-Colorful-7.webp" loading="lazy" alt="background drawings" class="print-triangle blog-grid-print"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="background drawings" class="print-triangle-2 blog-grid-print"></div>
+        <div class="print-container our-blog-page"><img src="/images/Squiggles-Colorful-7_1Squiggles-Colorful-7.webp" loading="lazy" alt="" class="print-of-balls blog-grid-print"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="" class="print-of-balls-2 blog-grid-print"><img src="/images/Squiggles-Colorful-8_1Squiggles-Colorful-8.webp" loading="lazy" alt="" class="print-of-balls-3 blog-grid-print"></div>
+        <div class="print-container"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="" class="print-lightning blog-grid-print"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="" class="print-lightning-2 blog-grid-print"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="" class="print-lightning-3 blog-grid-print"></div>
+        <div class="print-container"><img src="/images/Squiggles-Colorful-7_1Squiggles-Colorful-7.webp" loading="lazy" alt="" class="print-triangle blog-grid-print"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="" class="print-triangle-2 blog-grid-print"></div>
       </div>
     </div>
   </div>
@@ -302,9 +302,12 @@
               <input type="hidden" name="from_name" value="Too Good Maids Website">
               <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
-              <input type="text" name="name" placeholder="Name" required maxlength="100" class="contacts-input w-input" aria-label="Name">
-              <input type="email" name="email" placeholder="Email" required maxlength="120" class="contacts-input w-input" aria-label="Email">
-              <input type="tel" name="phone" placeholder="Phone (optional)" maxlength="30" class="contacts-input w-input" aria-label="Phone (optional)">
+              <label class="estimate-field-label" for="estimate-name">Name</label>
+            <input id="estimate-name" autocomplete="name" type="text" name="name" placeholder="Name" required maxlength="100" class="contacts-input w-input">
+              <label class="estimate-field-label" for="estimate-email">Email</label>
+            <input id="estimate-email" autocomplete="email" type="email" name="email" placeholder="Email" required maxlength="120" class="contacts-input w-input">
+              <label class="estimate-field-label" for="estimate-phone">Phone (optional)</label>
+            <input id="estimate-phone" autocomplete="tel" type="tel" name="phone" placeholder="Phone (optional)" maxlength="30" class="contacts-input w-input">
               <select name="service_type" required class="contacts-input w-input" aria-label="Cleaning service type">
                 <option value="">What kind of cleaning do you need?</option>
                 <option value="home">Home cleaning</option>
@@ -312,7 +315,8 @@
                 <option value="short-term-rental">Short-term rental turnover</option>
                 <option value="other">Other / I&rsquo;m not sure yet</option>
               </select>
-              <input type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input" aria-label="Preferred date or time (optional)">
+              <label class="estimate-field-label" for="estimate-preferred-date">Preferred date or time window (optional)</label>
+            <input id="estimate-preferred-date" type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input">
               <textarea name="message" placeholder="Tell us about the space: rooms, approximate square footage, and any specific must-do tasks" maxlength="3000" rows="4" class="contacts-textarea w-input" aria-label="Project details"></textarea>
 
               <div class="cf-turnstile" data-sitekey="0x4AAAAAAFI8HdMZ-fT3Pv1N" data-theme="light" style="margin-bottom:1em;"></div>
@@ -455,9 +459,9 @@
           <a data-w-id="e238cf9e-13f4-4f7e-d399-de373ceca7a6" href="#request-estimate" class="button w-button">Request an Estimate</a>
         </div>
         <div class="all-prints-wrap our-offer">
-          <div class="print-container discont"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="background drawings" class="print-of-balls newsletter"><img src="/images/Squiggles-Colorful_1Squiggles-Colorful.webp" loading="lazy" alt="background drawings" class="print-of-balls-2 newsletter"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="background drawings" class="print-of-balls-3 newsletter"></div>
-          <div class="print-container discont"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="background drawings" class="print-lightning newsletter"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="background drawings" class="print-lightning-2 newsletter"><img src="/images/Squiggles-Colorful-8_1Squiggles-Colorful-8.webp" loading="lazy" alt="background drawings" class="print-lightning-3 newsletter"></div>
-          <div class="print-container discont"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="background drawings" class="print-triangle newsletter"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="background drawings" class="print-triangle-2 our-offer"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="background drawings" class="print-triangle-3 newsletter"></div>
+          <div class="print-container discont"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="" class="print-of-balls newsletter"><img src="/images/Squiggles-Colorful_1Squiggles-Colorful.webp" loading="lazy" alt="" class="print-of-balls-2 newsletter"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="" class="print-of-balls-3 newsletter"></div>
+          <div class="print-container discont"><img src="/images/Squiggles-Colorful-5_1Squiggles-Colorful-5.webp" loading="lazy" alt="" class="print-lightning newsletter"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="" class="print-lightning-2 newsletter"><img src="/images/Squiggles-Colorful-8_1Squiggles-Colorful-8.webp" loading="lazy" alt="" class="print-lightning-3 newsletter"></div>
+          <div class="print-container discont"><img src="/images/Squiggles-Colorful-9_1Squiggles-Colorful-9.webp" loading="lazy" alt="" class="print-triangle newsletter"><img src="/images/Squiggles-Colorful-2_1Squiggles-Colorful-2.webp" loading="lazy" alt="" class="print-triangle-2 our-offer"><img src="/images/Squiggles-Colorful-6_1Squiggles-Colorful-6.webp" loading="lazy" alt="" class="print-triangle-3 newsletter"></div>
         </div>
         <div class="footer-circle-1"></div>
         <div class="footer-circle-2"></div>
@@ -475,8 +479,8 @@
             <p class="footer-brand-description">Bringing brilliance to your doorstep. Too Good Maids is the premier cleaning service in Western Kentucky—where cleanliness meets perfection. From Princeton and Eddyville to Kuttawa, Marion, Cadiz, and Benton, we help your home glow with pride.</p>
           </div>
           <div class="footer-social-icons-wrapper">
-            <a href="https://www.facebook.com/profile.php?id=100087897074261" target="_blank" rel="noopener" class="footer-icon-links"></a>
-            <a href="https://www.instagram.com/toogoodmaids" target="_blank" rel="noopener" class="footer-icon-links"></a>
+            <a href="https://www.facebook.com/profile.php?id=100087897074261" target="_blank" rel="noopener" class="footer-icon-links" aria-label="Facebook"><span aria-hidden="true"></span></a>
+            <a href="https://www.instagram.com/toogoodmaids" target="_blank" rel="noopener" class="footer-icon-links" aria-label="Instagram"><span aria-hidden="true"></span></a>
           </div>
         </div>
         <div data-w-id="f73eff7c-57fc-a58c-e7f4-2eb08579f4f9" class="footer-links-wrapper">
