@@ -162,3 +162,33 @@
   width: 100%;
   max-width: 400px; /* PayPal caps its form at 399px; match it so the form is centered */
 }
+
+/* Audit: collapsed answers must leave both keyboard and accessibility navigation. */
+.accordion-list[hidden] { display: none !important; }
+.estimate-field-label { display: block; margin: 0 0 6px; color: #33514e; font-weight: 600; }
+.footer-blue-title, .footer-link-contacts, .footer-copyright-link,
+.footer-icon-links { color: #167487; }
+a.link-2, a.link-3, .contact-links a { color: #b92f2f; }
+.footer-link-contacts:hover, .footer-copyright-link:hover, .footer-icon-links:hover,
+.footer-link-contacts:focus-visible, .footer-copyright-link:focus-visible,
+.footer-icon-links:focus-visible { color: #105969; }
+a.link-2:hover, a.link-3:hover, .contact-links a:hover,
+a.link-2:focus-visible, a.link-3:focus-visible, .contact-links a:focus-visible { color: #922323; }
+input.contacts-input::placeholder, textarea.contacts-textarea::placeholder {
+  color: #33514e;
+  opacity: 1;
+}
+
+/* Keep the compact drawer and its close control inside narrow viewports. */
+@media (max-width: 991px) {
+  .nav-menu-shadow-overlay-2 { width: min(320px, 100vw); }
+  .close-menu-button-2.w--open {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .close-menu-button-2 .nav-close-icon-2 { align-self: auto; }
+}
