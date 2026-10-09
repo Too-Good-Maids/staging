@@ -192,3 +192,20 @@ input.contacts-input::placeholder, textarea.contacts-textarea::placeholder {
   }
   .close-menu-button-2 .nav-close-icon-2 { align-self: auto; }
 }
+
+/* A keyboard shortcut past the repeated navigation on home and contact. */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10000;
+  padding: 12px 18px;
+  max-width: calc(100vw - 16px);
+  background: #fff;
+  color: #002434;
+  font-weight: 700;
+  text-decoration: underline;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+#main-content { scroll-margin-top: 190px; }

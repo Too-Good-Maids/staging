@@ -127,6 +127,7 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div style="width:auto; max-width: 95%;">
   <div data-animation="over-left" class="navigation-menu-home-transparent w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
     <div class="top-nav-container w-container">
@@ -236,6 +237,9 @@
       </div>
     </div>
   </div>
+  </div>
+  <main id="main-content" tabindex="-1">
+  <div style="width:auto; max-width: 95%;">
   <div id="home" class="section-mini-height banner-our-team">
     <div class="base-container-2 w-container">
       <div class="banner-title-wrapper-2">
@@ -302,13 +306,14 @@
               <input type="hidden" name="from_name" value="Too Good Maids Website">
               <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
 
-              <label class="estimate-field-label" for="estimate-name">Name</label>
+              <label class="estimate-field-label" for="estimate-name">Name (required)</label>
             <input id="estimate-name" autocomplete="name" type="text" name="name" placeholder="Name" required maxlength="100" class="contacts-input w-input">
-              <label class="estimate-field-label" for="estimate-email">Email</label>
+              <label class="estimate-field-label" for="estimate-email">Email (required)</label>
             <input id="estimate-email" autocomplete="email" type="email" name="email" placeholder="Email" required maxlength="120" class="contacts-input w-input">
               <label class="estimate-field-label" for="estimate-phone">Phone (optional)</label>
             <input id="estimate-phone" autocomplete="tel" type="tel" name="phone" placeholder="Phone (optional)" maxlength="30" class="contacts-input w-input">
-              <select name="service_type" required class="contacts-input w-input" aria-label="Cleaning service type">
+              <label class="estimate-field-label" for="estimate-service">Cleaning service type (required)</label>
+              <select id="estimate-service" name="service_type" required class="contacts-input w-input" aria-label="Cleaning service type">
                 <option value="">What kind of cleaning do you need?</option>
                 <option value="home">Home cleaning</option>
                 <option value="commercial">Commercial / office cleaning</option>
@@ -317,7 +322,8 @@
               </select>
               <label class="estimate-field-label" for="estimate-preferred-date">Preferred date or time window (optional)</label>
             <input id="estimate-preferred-date" type="text" name="preferred_date" placeholder="Preferred date or time window (optional)" maxlength="120" class="contacts-input w-input">
-              <textarea name="message" placeholder="Tell us about the space: rooms, approximate square footage, and any specific must-do tasks" maxlength="3000" rows="4" class="contacts-textarea w-input" aria-label="Project details"></textarea>
+              <label class="estimate-field-label" for="estimate-message">Project details (optional)</label>
+              <textarea id="estimate-message" name="message" placeholder="Tell us about the space: rooms, approximate square footage, and any specific must-do tasks" maxlength="3000" rows="4" class="contacts-textarea w-input" aria-label="Project details"></textarea>
 
               <div class="cf-turnstile" data-sitekey="0x4AAAAAAFI8HdMZ-fT3Pv1N" data-theme="light" style="margin-bottom:1em;"></div>
               <button type="submit" class="primary-red-button full-width w-button">Request an Estimate</button>
@@ -468,6 +474,7 @@
       </div>
     </div>
   </div>
+  </main>
   <div class="footer">
     <div class="base-container w-container">
       <div class="footer-wrapper">
