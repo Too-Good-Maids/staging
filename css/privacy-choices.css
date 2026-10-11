@@ -1,0 +1,27 @@
+/* Isolated, system-font controls; explicit contrast in both colour schemes. */
+#privacy-panel, #privacy-reopen {font: 16px/1.5 system-ui,sans-serif; box-sizing:border-box; color:#18232c; background:#fffdf7; border:2px solid #405767; border-radius:12px; z-index:2147483000; text-transform:none; letter-spacing:normal;}
+#privacy-panel {position:fixed; bottom:72px; right:16px; width:min(560px,calc(100% - 32px)); max-height:calc(100dvh - 100px); overflow:auto; padding:22px; box-shadow:0 8px 35px #0004; text-align:left;}
+#privacy-panel[hidden] {display:none!important;}
+#privacy-panel h2 {font:700 24px/1.25 system-ui,sans-serif; color:inherit; margin:0 0 12px;}
+#privacy-panel p {font:inherit; color:inherit; margin:10px 0;}
+#privacy-panel label {display:block; font:600 16px/1.5 system-ui,sans-serif; color:inherit; margin:14px 0; cursor:pointer;}
+#privacy-panel input {appearance:auto; width:20px; height:20px; margin:0 8px 0 0; vertical-align:middle;}
+#privacy-panel .privacy-note {font-size:14px;}
+#privacy-panel a {color:inherit; text-decoration:underline; font:inherit;}
+#privacy-panel .privacy-actions {display:flex; flex-wrap:wrap; gap:10px; margin:18px 0;}
+#privacy-panel button, #privacy-reopen {cursor:pointer; min-height:44px; padding:10px 14px; font:600 16px/1.4 system-ui,sans-serif;}
+#privacy-panel button {flex:1 1 140px; border:2px solid #405767; background:#edf2f5; color:#18232c; border-radius:6px;}
+#privacy-reopen {position:fixed; bottom:12px; right:16px;}
+#privacy-panel :focus-visible, #privacy-reopen:focus-visible {outline:3px solid #0070dd; outline-offset:3px;}
+.privacy-copy {max-width:800px; margin:40px auto; padding:24px; font:18px/1.65 system-ui,sans-serif;}
+.privacy-copy h1,.privacy-copy h2 {line-height:1.25;}
+@media(prefers-color-scheme:dark) {#privacy-panel,#privacy-reopen {color:#f5f7fa; background:#18232c; border-color:#bbcedc;} #privacy-panel button {color:#f5f7fa; background:#293c49; border-color:#bbcedc;} #privacy-panel :focus-visible,#privacy-reopen:focus-visible {outline-color:#ffcb68;}}
+@media(max-width:420px) {#privacy-panel {padding:16px; bottom:66px;} #privacy-panel .privacy-actions {gap:8px;} #privacy-panel button {flex-basis:100%;}}
+
+.privacy-copy {color:#18232c; background:#fffdf7; border-radius:12px;}
+.privacy-copy p,.privacy-copy li {color:inherit; font:inherit;}
+.privacy-copy h1,.privacy-copy h2 {color:inherit; font-family:system-ui,sans-serif;}
+.privacy-copy h1 {font-size:36px;} .privacy-copy h2 {font-size:24px; margin-top:30px;}
+.privacy-copy a {color:inherit; text-decoration:underline; overflow-wrap:anywhere;}
+#privacy-panel a {letter-spacing:normal;}
+@media(prefers-color-scheme:dark) {.privacy-copy {color:#f5f7fa; background:#18232c;}}
