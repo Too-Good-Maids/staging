@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let slideIndex = 0;
     let slides = document.getElementsByClassName("landing-home-pages-wrapper");
     let autoSlideInterval;
-  
+    const previousButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const slideshowContainer = document.querySelector(".slideshow-container");
+
+    if (!slides.length || !previousButton || !nextButton || !slideshowContainer) return;
+
     // Function to show the current slide based on slideIndex
     function showSlide(n) {
       // Hide all slides
@@ -33,18 +38,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     // Event listeners for next and previous buttons
-    document.querySelector(".prev").addEventListener("click", () => changeSlide(-1));
-    document.querySelector(".next").addEventListener("click", () => changeSlide(1));
+    previousButton.addEventListener("click", () => changeSlide(-1));
+    nextButton.addEventListener("click", () => changeSlide(1));
   
     // Optional: Pause auto-slide on hover
-    document.querySelector(".slideshow-container").addEventListener("mouseenter", stopAutoSlide);
-    document.querySelector(".slideshow-container").addEventListener("mouseleave", startAutoSlide);
+    slideshowContainer.addEventListener("mouseenter", stopAutoSlide);
+    slideshowContainer.addEventListener("mouseleave", startAutoSlide);
   
     // Start the slideshow
     showSlide(slideIndex);
     startAutoSlide();
   });
-  
-    
-  
-  
